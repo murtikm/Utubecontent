@@ -8,4 +8,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /mnt/video-hub
+    path: /mnt/video-hub   # Make sure this exists on all nodes
