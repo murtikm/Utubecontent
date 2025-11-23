@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: video-hub-backend
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: "{{ .Values.image.backend.repository }}:{{ .Values.image.backend.tag }}"
+          command: ["node", "-e", "const express=require('express');const app=express();app.use(express.json());let videos=[];app.get('/videos',(req,res)=>res.json(videos));app.post('/videos',(req,res)=>{videos.push(req.body);res.status(201).json(req.body)});app.listen(8080,()=>console.log('Backend running'))"]
+          ports:
+            - containerPort: 8080
