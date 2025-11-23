@@ -1,11 +1,11 @@
 replicaCount: 1
 
 image:
-  repository: YOUR_DOCKER_REGISTRY/video-generator
+  repository: betashow/video-generation-api   # public image, no login needed
   tag: latest
 
 service:
   type: ClusterIP
-  port: 80
+  port: 5000          # matches the container port of the public image
 
-containerPort: 8080
+containerPort: 5000  # matches the image default
