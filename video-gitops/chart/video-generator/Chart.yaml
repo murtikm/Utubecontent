@@ -1,6 +1,0 @@
-apiVersion: v2
-name: video-generator
-description: A service to generate short videos from text
-type: application
-version: 0.1.0
-appVersion: "1.0"

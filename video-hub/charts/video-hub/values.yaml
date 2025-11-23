@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  backend:
+    repository: node
+    tag: 20-alpine
+  frontend:
+    repository: nginx
+    tag: alpine
+  worker:
+    repository: jrottenberg/ffmpeg
+    tag: 4.4-ubuntu
+  postgres:
+    repository: postgres
+    tag: 14-alpine
+  redis:
+    repository: redis
+    tag: alpine
+
+service:
+  type: ClusterIP
+  port: 8080
+
+storage:
+  size: 50Gi
+
+ingress:
+  enabled: true
+  host: videohub.local

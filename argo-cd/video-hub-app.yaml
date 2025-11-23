@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: video-generator
+  name: video-hub
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/preangelleo/video-generation-docker.git'
+    repoURL: 'https://github.com/<YOUR_USERNAME>/video-hub.git'
     targetRevision: HEAD
-    path: chart/video-generator
+    path: charts/video-hub
     helm:
       valueFiles:
         - values.yaml

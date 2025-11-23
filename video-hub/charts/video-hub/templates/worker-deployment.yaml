@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: video-hub-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: ffmpeg
+          image: "{{ .Values.image.worker.repository }}:{{ .Values.image.worker.tag }}"
+          command: ["sleep", "infinity"]
+          volumeMounts:
+            - name: storage
+              mountPath: /data
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: video-hub-pvc
