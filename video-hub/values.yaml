@@ -27,3 +27,4 @@ storage:
 ingress:
   enabled: true
   host: videohub.local
+storageClassName: standard   # replace with your storage class name
