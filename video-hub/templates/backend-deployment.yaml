@@ -32,5 +32,5 @@ spec:
             claimName: video-hub-pvc
         - name: backend-code
           hostPath:
-            path: /home/<user>/video-hub/backend
-            type: Directory
+                 path: /home/ram/video-hub/backend
+                  type: Directory
