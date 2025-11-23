@@ -1,12 +1,1 @@
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: video-hub-pv
-spec:
-  capacity:
-    storage: 50Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /mnt/video-hub
-  persistentVolumeReclaimPolicy: Retain
+
