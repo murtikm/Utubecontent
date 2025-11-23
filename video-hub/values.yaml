@@ -27,4 +27,7 @@ storage:
 ingress:
   enabled: true
   host: videohub.local
-storageClassName: standard   # replace with your storage class name
+storage:
+  size: 50Gi
+  storageClassName: standard   # <-- change to your cluster's storage class
+
