@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: video generator          # lowercase only, valid ArgoCD name
-  namespace: argocd              # ArgoCD namespace
+  name: video-generator
+  namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/preangelleo/video-generation-docker.git'  # public repo
+    repoURL: 'https://github.com/preangelleo/video-generation-docker.git'
     targetRevision: HEAD
     path: chart/video-generator
     helm:
@@ -14,7 +14,7 @@ spec:
         - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default           # where you want to deploy
+    namespace: default
   syncPolicy:
     automated:
       prune: true
