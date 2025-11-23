@@ -14,6 +14,12 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: "{{ .Values.image.frontend.repository }}:{{ .Values.image.frontend.tag }}"
-          ports:
-            - containerPort: 80
+          image: nginx:stable-alpine
+          volumeMounts:
+            - name: frontend-code
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: frontend-code
+          hostPath:
+            path: /home/<user>/video-hub/frontend
+            type: Directory
