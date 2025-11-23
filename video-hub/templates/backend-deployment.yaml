@@ -33,4 +33,4 @@ spec:
         - name: backend-code
           hostPath:
                  path: /home/ram/video-hub/backend
-                  type: Directory
+                 type: Directory
