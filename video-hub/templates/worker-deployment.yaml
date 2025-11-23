@@ -13,9 +13,9 @@ spec:
         app: worker
     spec:
       containers:
-        - name: ffmpeg
-          image: "{{ .Values.image.worker.repository }}:{{ .Values.image.worker.tag }}"
-          command: ["sleep", "infinity"]
+        - name: worker
+          image: jrottenberg/ffmpeg:4.4-ubuntu
+          command: ["sleep","infinity"]
           volumeMounts:
             - name: storage
               mountPath: /data
