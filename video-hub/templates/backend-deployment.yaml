@@ -2,15 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: video-hub-backend
+  labels:
+    app: video-hub-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: video-hub-backend
   template:
     metadata:
       labels:
-        app: backend
+        app: video-hub-backend
     spec:
       containers:
         - name: backend
@@ -32,5 +34,5 @@ spec:
             claimName: video-hub-pvc
         - name: backend-code
           hostPath:
-                 path: /home/ram/video-hub/backend
-                 type: Directory
+            path: /home/ram/video-hub/backend
+            type: Directory
