@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-video
+  labels:
+    app: {{ .Release.Name }}-video
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-video
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-video
+    spec:
+      containers:
+        - name: video-generator
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+          # you can add resources, env here if needed
