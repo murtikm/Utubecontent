@@ -4,8 +4,8 @@ metadata:
   name: video-hub-pv
 spec:
   capacity:
-    storage: 10Gi
+    storage: 50Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /mnt/video-hub   # Make sure this exists on all nodes
+    path: /mnt/video-hub   # Make sure this folder exists
